@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Adressbook.Mvvm.ViewModels"
+             xmlns:views="clr-namespace:Adressbook.Mvvm.Views"
+             xmlns:models="clr-namespace:Adressbook.Mvvm.Models"
+             x:DataType="viewmodels:MainViewModel"
+             x:Class="Adressbook.MainPage"
+             Shell.NavBarIsVisible="False">
+
+
+
+    <Grid RowDefinitions="*, auto" Padding="30">
+
+
+        <VerticalStackLayout Spacing="25" Padding="30,0" VerticalOptions="Center">
+            <Label Text="NETBook" HorizontalOptions="Center" FontSize="Header"> </Label>
+            <Button Grid.Row="1" Text="Visa alla kontakter" Command="{Binding GoToShowAllCommand}" />
+            <Button Grid.Row="2" Text="Sortera kontakter"  />
+            <Button Grid.Row="3" Text="Ta bort kontakt" />
+            <Button Grid.Row="4" Text="Uppdatera uppgifter för befintlig kontakt" Command="{Binding GoToUpdateCommand}" />
+            <Button Grid.Row="5" Text="Skapa ny kontakt"  Command="{Binding GoToAddCommand}" />
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
+
+    

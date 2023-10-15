@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Adressbook.Mvvm.ViewModels"
+             xmlns:views="clr-namespace:Adressbook.Mvvm.Views"
+             xmlns:models="clr-namespace:Adressbook.Mvvm.Models"
+             x:DataType="viewmodels:MainViewModel"
+             x:Class="Adressbook.Mvvm.Views.ShowAllPage"
+             Title="ShowAllPage">
+
+    <Grid RowDefinitions="*, auto" Padding="30">
+        <CollectionView Grid.Row="0" ItemsSource="{Binding Contacts}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type models:ContactModel}">
+                    <Grid RowDefinitions="auto,auto" Margin="0,10,0,10">
+                        <HorizontalStackLayout Grid.Row="0">
+                            <Label Text="{Binding FirstName}" FontSize="17" Margin="0,0,5,0"/>
+                            <Label Text="{Binding LastName}" FontSize="17" />
+                        </HorizontalStackLayout>
+                        <Label Grid.Row="1" Text="{Binding Email}" />
+
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer CommandParameter="{Binding .}" Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:MainViewModel}}, Path=GoToDetailCommand}"/>
+                        </Grid.GestureRecognizers>
+
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
